@@ -2,7 +2,8 @@ import 'package:expense_ui/widgets/general.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import 'responsiveness/layout.dart';
+import '../responsiveness/layout.dart';
+
 
 class Details extends StatelessWidget {
   Details({Key? key}) : super(key: key);

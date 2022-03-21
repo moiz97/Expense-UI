@@ -1,7 +1,8 @@
-import 'package:expense_ui/details.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'details.dart';
 import 'home.dart';
 
 void main() {
