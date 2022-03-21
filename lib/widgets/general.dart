@@ -1,5 +1,6 @@
-import 'package:expense_ui/responsiveness/layout.dart';
 import 'package:flutter/material.dart';
+
+import 'package:expense_ui/responsiveness/layout.dart';
 
 class BankCard extends StatelessWidget {
   final String bankName;
@@ -198,6 +199,73 @@ class TransactionCard extends StatelessWidget {
               ),
         ),
       ],
+    );
+  }
+}
+
+class OverviewCard extends StatelessWidget {
+  final int amount;
+  final String currency;
+  final String type;
+  final double percentage;
+  const OverviewCard({
+    Key? key,
+    required this.amount,
+    required this.currency,
+    required this.type,
+    required this.percentage,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final double _deviceHeight = MediaQuery.of(context).size.height;
+    final double _deviceWidth = MediaQuery.of(context).size.width;
+    return Container(
+      width: _deviceWidth * 0.4,
+      height: _deviceHeight * 0.07,
+      decoration: BoxDecoration(
+        color: const Color(0xff1c1f20),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 46, 65, 80).withOpacity(0.8),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Icon(
+                type == "Income" ? Icons.arrow_downward : Icons.arrow_upward,
+                color: type == "Income" ? Colors.green : Colors.red,
+              ),
+            ),
+          ),
+          Spacers.verticalSpaceSmall(context),
+          Text(
+            currency + " " + amount.toString(),
+            style:
+                Theme.of(context).textTheme.headline2!.copyWith(fontSize: 22),
+          ),
+          Spacers.verticalSpaceSmall(context),
+          Text(
+            type,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          Spacers.verticalSpaceSmall(context),
+          Text(
+            percentage.toString() + "%",
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  color: type == "Income" ? Colors.green : Colors.red,
+                ),
+          ),
+        ],
+      ),
     );
   }
 }

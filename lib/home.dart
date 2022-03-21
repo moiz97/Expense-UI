@@ -45,14 +45,19 @@ class Home extends StatelessWidget {
               children: [
                 topBar(context),
                 Spacers.verticalSpaceMedium(context),
-                const BankCard(
-                  bankName: "Bank of Pakistan",
-                  bankLogoPath: "assets/logos/mastercard_logo.png",
-                  bankNumber: "3460 **** **** 9875",
-                  bankBalance: "250,558",
-                  bankCurrency: "PKR",
-                  cardColor: Color.fromARGB(255, 46, 65, 80),
-                  customerName: "Muhammad Moiz",
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/details');
+                  },
+                  child: const BankCard(
+                    bankName: "Bank of Pakistan",
+                    bankLogoPath: "assets/logos/mastercard_logo.png",
+                    bankNumber: "3460 **** **** 9875",
+                    bankBalance: "250,558",
+                    bankCurrency: "PKR",
+                    cardColor: Color.fromARGB(255, 46, 65, 80),
+                    customerName: "Muhammad Moiz",
+                  ),
                 ),
                 Spacers.verticalSpaceMedium(context),
                 pinnedWidgets(),

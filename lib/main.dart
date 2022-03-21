@@ -1,3 +1,4 @@
+import 'package:expense_ui/details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,7 +43,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Home(),
+      routes: {
+        '/': (context) => const Home(),
+        '/details': (context) => Details(),
+      },
     );
   }
 }
